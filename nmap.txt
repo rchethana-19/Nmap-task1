@@ -1,0 +1,76 @@
+1.nmap 192.168.64.0/24
+ 
+  Nmap scan report for 192.168.64.2
+Host is up (0.0000030s latency).
+All 1000 scanned ports on 192.168.64.2 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+
+Nmap done: 256 IP addresses (2 hosts up) scanned in 9.20 seconds
+
+*All 1000 scanned ports on 192.168.64.2 are in ignored states.
+This means Nmap found no open or filtered ports among the 1000 common TCP ports it scanned. They were all "ignored" because they are closed — i.e., they responded with a TCP RST (reset), meaning "nothing is listening here."
+
+*Not shown: 1000 closed tcp ports (reset)
+Confirms that all scanned ports responded with a TCP reset (RST), which indicates they are closed — not accepting connections.
+
+*2 hosts up
+Of the 256 IPs scanned in your subnet (likely 192.168.64.0/24), only 2 devices responded (including this one).
+
+2.nmap -sS 192.168.64.0/24
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-05-26 21:38 IST
+Nmap scan report for 192.168.64.1
+Host is up (0.00064s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT     STATE SERVICE
+53/tcp   open  domain
+5000/tcp open  upnp
+7000/tcp open  afs3-fileserver
+MAC Address: 12:BD:3A:28:35:64 (Unknown)
+
+Nmap scan report for 192.168.64.2
+Host is up (0.0000040s latency).
+All 1000 scanned ports on 192.168.64.2 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+
+Nmap done: 256 IP addresses (2 hosts up) scanned in 9.22 seconds
+
+Open Ports:
+
+    53/tcp → domain: Likely a DNS server is running.
+
+    5000/tcp → upnp: Typically used for Universal Plug and Play services.
+
+    7000/tcp → afs3-fileserver: Could be a file-sharing or RPC-related service (used in some specialized environments).
+
+MAC Address: 12:BD:3A:28:35:64 — but Nmap couldn't resolve the manufacturer (which sometimes happens with virtual machines, obscure NICs, or spoofed MAC)
+
+3.nmap -sV 192.168.64.0/24
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-05-26 21:40 IST
+Nmap scan report for 192.168.64.1
+Host is up (0.00050s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+53/tcp   open  domain  (generic dns response: NOTIMP)
+5000/tcp open  rtsp
+7000/tcp open  rtsp
+
+Nmap scan report for 192.168.64.2
+Host is up (0.0000030s latency).
+All 1000 scanned ports on 192.168.64.2 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+
+
+Nmap done: 256 IP addresses (2 hosts up) scanned in 49.03 seconds
+
+4.Identifying unknown MAC
+
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-05-26 22:03 IST
+Nmap scan report for 192.168.64.2
+Host is up (0.000047s latency).
+All 1000 scanned ports on 192.168.64.2 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 0 hops
+
+
+Nmap done: 1 IP address (1 host up) scanned in 1.63 seconds
